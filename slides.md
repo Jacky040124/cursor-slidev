@@ -9,8 +9,8 @@ layout: cover
 ---
 <div class="flex flex-col items-center gap-4">
   <h2 class="text-2xl font-bold">Access the Slides</h2>
-  <img src="./assets/slides_qr.png" alt="Cursor Logo" class="mx-auto" />
-  <a href="https://sanjeed5.github.io/cursor-slidev/" class="text-lg hover:underline">https://sanjeed5.github.io/cursor-slidev/</a>
+  <img src="./assets/slides_qr.png" alt="QR Code for Slides" class="mx-auto w-64 h-64 object-contain" />
+     <a href="https://cursor-slidev-plzi29j75-jacky-zhongs-projects.vercel.app/1" class="text-lg hover:underline">Click here to access the slides online</a>
 </div>
 
 ---
@@ -378,9 +378,6 @@ layout: cover
 
 
 ---
-
-
-# Thank You
 
 <div class="flex flex-col items-center justify-center h-full space-y-6">
   <h2 class="text-4xl font-light text-center tracking-wide">Thank You for Coming</h2>
