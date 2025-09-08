@@ -40,7 +40,7 @@ layout: cover
   </div>
   <div class="p-2 bg-white/10 rounded border border-white/20">
     <strong>Sanket Mittal</strong>
-  </div>
+  </div>    
   <div class="p-2 bg-white/10 rounded border border-white/20">
     <strong>Toki</strong>
   </div>
