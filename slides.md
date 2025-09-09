@@ -190,22 +190,22 @@ layout: cover
 <div class="space-y-2">
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Understanding the concept of "environment"</strong>
+    <strong>What is an "environment" ? </strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Opening the terminal</strong>
+    <strong>Open Cursor agent </strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Using Jacky's environment setup</strong>
+    <strong>Enter environment setup prompt</strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Configuring Cursor app + environment</strong>
+    <strong>Verify environment setup is working correctly</strong>
   </label>
 </div>
 
@@ -215,6 +215,16 @@ layout: cover
 </div>
 
 </div>
+
+<!--
+- explain what is an environment in simple non technical term
+
+- make sure they are opening it in the agent mode, if doesnt work the shortcut is control option b on mac
+
+- the prompt is TBD
+
+- verification prompt is TBD
+-->
 
 ---
 
@@ -227,7 +237,7 @@ layout: cover
 <div class="space-y-2">
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Selecting the right AI model (we'll recommend one)</strong>
+    <strong>Selecting the right AI model</strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
@@ -237,7 +247,7 @@ layout: cover
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Your first prompt: Creating a markdown file</strong>
+    <strong>Your first prompt: Create a markdown file about me</strong>
   </label>
 </div>
 
@@ -247,6 +257,15 @@ layout: cover
 </div>
 
 </div>
+
+<!--
+- recommand claude sonnet 4 or claude sonnet 4 thinking
+
+- tab, chat, agent, recommand using agent the entire time 
+
+- prompt TBD
+-->
+
 
 ---
 
@@ -259,7 +278,7 @@ layout: cover
 <div class="space-y-2">
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Use our pre-built prompt template with blanks to fill in</strong>
+    <strong>Use our pre-built prompt to generate a PRD</strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
@@ -289,6 +308,13 @@ layout: cover
 </div>
 
 </div>
+
+<!--
+- Prompt TBD
+
+- Clarifying Question Prompt : Before you do anything, first ask any clarifying questions so that you can do this task better.
+-->
+
 
 ---
 
