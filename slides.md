@@ -183,6 +183,12 @@ layout: cover
 
 # Environment Setup
 
+<div class="absolute top-4 right-4">
+  <button @click="copySetupPrompt()" class="px-3 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/30 text-xs font-medium transition-colors">
+    {{ setupButtonText }}
+  </button>
+</div>
+
 <div class="space-y-4">
 
 ## Setting Up Your Development Environment
@@ -216,12 +222,86 @@ layout: cover
 
 </div>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const setupButtonText = ref('Copy Setup Prompt')
+
+const copySetupPrompt = async () => {
+  const setupPrompt = `You are my setup assistant.  
+Help me set up a Next.js project with Tailwind CSS inside the current directory (do not create an extra subfolder).  
+
+Steps:  
+1. Initialize Next.js in the current folder using \`npx create-next-app@latest .\`  
+   - Use \`.\` so everything is placed directly in the current directory.  
+   - Do not create another nested folder.  
+2. Install Tailwind CSS, PostCSS, and Autoprefixer.  
+3. Configure \`tailwind.config.js\` and \`globals.css\`.  
+4. Verify setup by showing me the exact command to run the dev server with Turbopack:  
+   - \`npm run dev --turbo\` (instead of the default dev command).  
+   - Confirm it runs locally at \`http://localhost:3000\`.  
+5. Create a sample React component called \`CursorWorkshopTerminal\`:  
+   - Styled to look like a simple terminal window using Tailwind classes.  
+   - Include a header bar with 3 colored dots (red, yellow, green) to mimic a macOS terminal.  
+   - Inside the terminal body, display a line like:  
+     \`\`\`
+     jacky@cursor:~$ Cursor Workshop
+     \`\`\`  
+   - Add a Tailwind-styled button below the terminal that says **"Run Command"**.  
+   - When clicked, the button should append another line in the terminal like:  
+     \`\`\`
+     > Hello from Cursor!
+     \`\`\`  
+6. Import this component into the homepage so I can visually confirm Tailwind CSS and interactivity are working.`
+
+  try {
+    await navigator.clipboard.writeText(setupPrompt)
+    setupButtonText.value = 'Copied!'
+    setTimeout(() => {
+      setupButtonText.value = 'Copy Setup Prompt'
+    }, 1500)
+  } catch (err) {
+    console.error('Failed to copy: ', err)
+  }
+}
+</script>
+
 <!--
 - explain what is an environment in simple non technical term
 
 - make sure they are opening it in the agent mode, if doesnt work the shortcut is control option b on mac
 
-- the prompt is TBD
+- the prompt is 
+
+You are my setup assistant.  
+Help me set up a Next.js project with Tailwind CSS inside the current directory (do not create an extra subfolder).  
+
+Steps:  
+1. Initialize Next.js in the current folder using `npx create-next-app@latest .`  
+   - Use `.` so everything is placed directly in the current directory.  
+   - Do not create another nested folder.  
+2. Install Tailwind CSS, PostCSS, and Autoprefixer.  
+3. Configure `tailwind.config.js` and `globals.css`.  
+4. Verify setup by showing me the exact command to run the dev server with Turbopack:  
+   - `npm run dev --turbo` (instead of the default dev command).  
+   - Confirm it runs locally at `http://localhost:3000`.  
+5. Create a sample React component called `CursorWorkshopTerminal`:  
+   - Styled to look like a simple terminal window using Tailwind classes.  
+   - Include a header bar with 3 colored dots (red, yellow, green) to mimic a macOS terminal.  
+   - Inside the terminal body, display a line like:  
+     ```
+     jacky@cursor:~$ Cursor Workshop
+     ```  
+   - Add a Tailwind-styled button below the terminal that says **“Run Command”**.  
+   - When clicked, the button should append another line in the terminal like:  
+     ```
+     > Hello from Cursor!
+     ```  
+6. Import this component into the homepage so I can visually confirm Tailwind CSS and interactivity are working.  
+
+
+
+
 
 - verification prompt is TBD
 -->
@@ -229,6 +309,12 @@ layout: cover
 ---
 
 # First AI Interaction
+
+<div class="absolute top-4 right-4">
+  <button @click="copyAIPrompt()" class="px-3 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/30 text-xs font-medium transition-colors">
+    {{ aiButtonText }}
+  </button>
+</div>
 
 <div class="space-y-4">
 
@@ -258,27 +344,79 @@ layout: cover
 
 </div>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const aiButtonText = ref('Copy AI Prompt')
+
+const copyAIPrompt = async () => {
+  const aiPrompt = `You are my AI assistant.  
+Your task is to create a complete **markdown file** (\`about.md\`) about me for my personal portfolio website.  
+The output must be valid markdown and nothing else.  
+
+Here is the information to include (I will fill in the brackets):  
+
+- **Name**: [Your Full Name]  
+- **What I Do**: [Your profession, studies, or main role]  
+- **What I Like**: [Your hobbies, passions, interests]  
+- **People Who Inspire Me**: [Names of individuals, role models, or communities]  
+- **Visual Style I Prefer**: [Minimalist, modern, playful, dark theme, colorful, etc.]  
+- **Other Notes**: [Any extra detail you want highlighted, e.g., favorite quote, personal mission, fun fact]`
+
+  try {
+    await navigator.clipboard.writeText(aiPrompt)
+    aiButtonText.value = 'Copied!'
+    setTimeout(() => {
+      aiButtonText.value = 'Copy AI Prompt'
+    }, 1500)
+  } catch (err) {
+    console.error('Failed to copy: ', err)
+  }
+}
+</script>
+
 <!--
 - recommand claude sonnet 4 or claude sonnet 4 thinking
 
 - tab, chat, agent, recommand using agent the entire time 
 
-- prompt TBD
--->
+- prompt 
 
+You are my AI assistant.  
+Your task is to create a complete **markdown file** (`about.md`) about me for my personal portfolio website.  
+The output must be valid markdown and nothing else.  
+
+Here is the information to include (I will fill in the brackets):  
+
+- **Name**: [Your Full Name]  
+- **What I Do**: [Your profession, studies, or main role]  
+- **What I Like**: [Your hobbies, passions, interests]  
+- **People Who Inspire Me**: [Names of individuals, role models, or communities]  
+- **Visual Style I Prefer**: [Minimalist, modern, playful, dark theme, colorful, etc.]  
+- **Other Notes**: [Any extra detail you want highlighted, e.g., favorite quote, personal mission, fun fact]
+-->
 
 ---
 
 # Building Your Project
 
+<div class="absolute top-4 right-4 space-y-1">
+  <button @click="copyPlanPrompt()" class="block w-full px-3 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/30 text-xs font-medium transition-colors">
+    {{ planButtonText }}
+  </button>
+  <button @click="copyImplementPrompt()" class="block w-full px-3 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/30 text-xs font-medium transition-colors">
+    {{ implementButtonText }}
+  </button>
+</div>
+
 <div class="space-y-4">
 
-## Creating Your Product Requirements Document (PRD)
+## Creating Your Implmentation Plan
 
 <div class="space-y-2">
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Use our pre-built prompt to generate a PRD</strong>
+    <strong>Use our prompt to generate a implementation plan</strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
@@ -309,12 +447,112 @@ layout: cover
 
 </div>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const planButtonText = ref('Copy Plan Prompt')
+const implementButtonText = ref('Copy Implement Prompt')
+
+const copyPlanPrompt = async () => {
+  const planPrompt = `You are my AI assistant.  
+Your task is to generate a **comprehensive MVP Implementation Plan** for my personal portfolio website.  
+The output must be structured, professional, and written in **markdown**.  
+
+Before drafting the plan, **first examine the current project/tech stack in this workspace** and summarize findings in 5–8 bullets:  
+- Read \`package.json\` (dependencies/scripts), \`next.config.*\`, \`tailwind.config.*\`, \`tsconfig.json\`, \`postcss.config.*\`, and the \`app/\` or \`pages/\` structure.  
+- Note framework/version (Next.js), language (TS/JS), styling (Tailwind), UI libs, linting, build/dev scripts, and deploy tooling.  
+- Call out gaps/constraints relevant to a **one-page site with no backend**.  
+
+**Project constraints**  
+- **Single-page website (one route: \`/\`)**.  
+- **No backend capability**: no API routes, no server actions, no DB/auth; static assets only. Client-side interactivity is OK.  
+- **Do not consider project timeline, target audience, deployment, or analytics** — they are out of scope.  
+
+**Formatting instructions**  
+1. Start with a **Tech Stack Audit** section based on your examination.  
+2. Then write the MVP Implementation Plan with the following sections:  
+   - **Project Overview** (short summary of MVP goal)  
+   - **Core Features** (must-have sections & interactions for MVP)  
+   - **Implementation Steps** (step-by-step dev tasks in order of execution)  
+   - **Architecture & File Structure** (recommended folder/component layout)  
+   - **Styling & Design Guidelines** (Tailwind conventions, theming, typography, colors)  
+   - **Interactivity** (smooth scrolling, animations, dark/light toggle, terminal component)  
+   - **Content Management** (hardcoded in components for MVP; markdown optional later)  
+3. Use clear markdown headings (\`#\`, \`##\`, \`###\`) and concise bullet points.  
+
+**Before you do anything, first ask any clarifying questions so that you can do this task better.**`
+
+  try {
+    await navigator.clipboard.writeText(planPrompt)
+    planButtonText.value = 'Copied!'
+    setTimeout(() => {
+      planButtonText.value = 'Copy Plan Prompt'
+    }, 1500)
+  } catch (err) {
+    console.error('Failed to copy: ', err)
+  }
+}
+
+const copyImplementPrompt = async () => {
+  const implementPrompt = `You are my AI assistant.  
+Your task is to **implement the MVP Implementation Plan** for my personal portfolio website inside this project.  
+
+The final deliverable should be a **fully implemented, build-verified MVP portfolio website** in this project.  
+Use \`npm run build\` to verify the implementation.`
+
+  try {
+    await navigator.clipboard.writeText(implementPrompt)
+    implementButtonText.value = 'Copied!'
+    setTimeout(() => {
+      implementButtonText.value = 'Copy Implement Prompt'
+    }, 1500)
+  } catch (err) {
+    console.error('Failed to copy: ', err)
+  }
+}
+</script>
+
 <!--
-- Prompt TBD
+Prompt
 
-- Clarifying Question Prompt : Before you do anything, first ask any clarifying questions so that you can do this task better.
+You are my AI assistant.  
+Your task is to generate a **comprehensive MVP Implementation Plan** for my personal portfolio website.  
+The output must be structured, professional, and written in **markdown**.  
+
+Before drafting the plan, **first examine the current project/tech stack in this workspace** and summarize findings in 5–8 bullets:  
+- Read `package.json` (dependencies/scripts), `next.config.*`, `tailwind.config.*`, `tsconfig.json`, `postcss.config.*`, and the `app/` or `pages/` structure.  
+- Note framework/version (Next.js), language (TS/JS), styling (Tailwind), UI libs, linting, build/dev scripts, and deploy tooling.  
+- Call out gaps/constraints relevant to a **one-page site with no backend**.  
+
+**Project constraints**  
+- **Single-page website (one route: `/`)**.  
+- **No backend capability**: no API routes, no server actions, no DB/auth; static assets only. Client-side interactivity is OK.  
+- **Do not consider project timeline, target audience, deployment, or analytics** — they are out of scope.  
+
+**Formatting instructions**  
+1. Start with a **Tech Stack Audit** section based on your examination.  
+2. Then write the MVP Implementation Plan with the following sections:  
+   - **Project Overview** (short summary of MVP goal)  
+   - **Core Features** (must-have sections & interactions for MVP)  
+   - **Implementation Steps** (step-by-step dev tasks in order of execution)  
+   - **Architecture & File Structure** (recommended folder/component layout)  
+   - **Styling & Design Guidelines** (Tailwind conventions, theming, typography, colors)  
+   - **Interactivity** (smooth scrolling, animations, dark/light toggle, terminal component)  
+   - **Content Management** (hardcoded in components for MVP; markdown optional later)  
+3. Use clear markdown headings (`#`, `##`, `###`) and concise bullet points.  
+
+**Before you do anything, first ask any clarifying questions so that you can do this task better.**  
+
+
+
+Prompt for Implement 
+
+You are my AI assistant.  
+Your task is to **implement the MVP Implementation Plan** for my personal portfolio website inside this project.  
+
+The final deliverable should be a **fully implemented, build-verified MVP portfolio website** in this project.  
+Use `npm run build` to verify the implementation.
 -->
-
 
 ---
 
