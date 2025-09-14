@@ -619,7 +619,7 @@ Use `npm run build` to verify the implementation.
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
     <input type="checkbox" class="w-4 h-4 mr-3 accent-white/70 bg-transparent border border-white/30 rounded focus:ring-1 focus:ring-white/50">
-    <strong>Post on social media (X or LinkedIn) @benln @cursor sharing your thoughts</strong>
+    <strong>Post on social media (X or LinkedIn) @benln @cursor @althraincubator sharing your thoughts</strong>
   </label>
   
   <label class="flex items-center p-2 bg-white/5 rounded border border-white/10 cursor-pointer hover:bg-white/10 transition-colors">
